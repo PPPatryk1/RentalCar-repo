@@ -1,0 +1,13 @@
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\bin\Debug\RentalCar.exe.config
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\bin\Debug\RentalCar.exe
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\bin\Debug\RentalCar.pdb
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\bin\Debug\Dapper.dll
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\bin\Debug\Dapper.xml
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.csprojAssemblyReference.cache
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.Properties.Resources.resources
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.csproj.GenerateResource.cache
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.csproj.CopyComplete
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.exe
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.pdb
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.Main.resources
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.LoginForm.resources
