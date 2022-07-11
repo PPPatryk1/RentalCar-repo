@@ -68,5 +68,41 @@ namespace RentalCar
                 return output;        
             }
         }
+        public int EmailCheck(string email) //Chwilowo nie działa
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("CarDB")))
+            {
+                int output = Convert.ToInt32(connection.ExecuteScalar($"[dbo].[EmailCheck] @Email",new { @Email = email }));
+                return output;
+                
+            }
+        }
+        public void AddNewCustomer(string Firstname, string Surrname, string Address, int Phone, string Email, string Password)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("CarDB")))
+            {
+                List<Customer> customers = new List<Customer>();
+                customers.Add(new Customer { Firstname = Firstname, Surrname = Surrname, Adress = Address, PhoneNumber = Phone, Email = Email, Password = Password });
+                connection.Execute("[dbo].[AddNewCustomer] @Firstname, @Surrname, @Adress, @PhoneNumber, @Email, @Password", customers);
+            }
+        }
+        public List<Administrator> LoginAdmin(string admincode, string password)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("CarDB")))
+            {
+                var output = connection.Query<Administrator>($"[dbo].[CorrectAdmin] @AdminCode='{admincode}', @Password='{password}'").ToList();
+                return output;
+            }
+        }
+
+        //---------------------------------------------------------------------------------------------------------
+        public List<Places> GetPlacesList()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("CarDB")))
+            {
+                var output = connection.Query<Places>("[dbo].[AllPlaces]").ToList();
+                return output;
+            }
+        }
     }
 }

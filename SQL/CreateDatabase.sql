@@ -49,6 +49,53 @@ VALUES	('Maciej', 'RÛg', 'ul. Kwiatowa 34 98-300 WieluÒ', 874154895,'Maciej4322@
 		('Karolina', 'Lina', 'al. Kart 11b 76-555 £Ûdü', 259874565,'Karolcia21@onet.pl','MNDJjfurfh3223j'),
 		('Milena', 'Kowalska', 'ul. Paska 4 63-093 Katowice', 987444514,'Mil0923ena@gmail.com','SDsdfds33'),
 		('Henryk', 'Nowak', 'ul. Kolorowa 2 87-232 Bydgoszcz', 365985475,'HenNow@gmail.com','poiuhbn2'),
-		('Patryk', 'Dos', 'ul. Polna 25\4b 00-001 Warszawa', 125478548,'PatrykDos00001@o2.pl','MKijij884rr4re');
+		('Patryk', 'Dos', 'ul. Polna 25\4b 00-001 Warszawa', 125478548,'PatrykDos00001@o2.pl','MKijij884rr4re'),
+		('Maciej','Kowalski','ul. Kwiatowa 43 98-300 GdaÒsk',123321123,'abc','1234');
 
 go
+
+DROP TABLE IF EXISTS [Administrators]
+
+CREATE TABLE [Administrators](
+IDAdmin int constraint prm_key_admin PRIMARY KEY IDENTITY(1,1) NOT NULL,
+Firstname nvarchar(30) NOT NULL,
+Surrname nvarchar(30) NOT NULL,
+AdminCode nvarchar(10) NOT NULL UNIQUE CHECK(AdminCode Not Like '%[^0-9]%'),
+Password nvarchar(20) NOT NULL)
+
+INSERT INTO Administrators(Firstname,Surrname,AdminCode,Password)
+VALUES ('Jacek','Kowalski','7845965874','874ebgGF574'),
+		('Antoni','Gitega','3432221232','zxcvbnm'),
+		('Maciej','Krzak','6574839201','5TG76TNBDs'),
+		('Jan','Chrzan','1234567890','1234');
+
+
+DROP TABLE IF EXISTS [Places]
+
+CREATE TABLE [Places](
+IDPlace int constraint prm_key_place PRIMARY KEY IDENTITY(1,1) NOT NULL,
+Address nvarchar(200) NOT NULL,
+PhoneNumber int NOT NULL UNIQUE CHECK (PhoneNumber Not Like '%[^0-9]%'),
+AdditionalFee int NOT NULL)
+
+INSERT INTO [Places](Address, PhoneNumber, AdditionalFee)
+VALUES ('ul. Targowa 34 45-340 Warszawa',233445561,0),
+		('ul. Ch≥odna 23 55-555 Wroc≥aw',233445562,0),
+		('ul. Kawowa 1/11 33-243 £Ûdü',233445563,0),
+		('ul. Wyboista 34B/5 34-232 £Ûdü',233445564,0),
+		('ul. Julii 333 34-233 £Ûdü',233445565,100),
+		('ul. Wielka 23/23 23-232 £Ûdü',233445566,120)
+
+DROP TABLE IF EXISTS [Contracts]
+
+CREATE TABLE [Contracts](
+IDContract int constraint prm_key_con PRIMARY KEY IDENTITY(1,1) NOT NULL,
+IDCar int NOT NULL,
+IDCustomer int NOT NULL,
+IDPlace int NOT NULL,
+StartDay DATE NOT NULL,
+FinishDay DATE NOT NULL,
+TotalPrice int NOT NULL,
+CONSTRAINT [ID_Car_FK] FOREIGN KEY([IDCar]) REFERENCES [dbo].[Cars] ([IDCar]),
+CONSTRAINT [ID_Customer_FK] FOREIGN KEY([IDCustomer]) REFERENCES [dbo].[Customers] ([IDCustomer]),
+CONSTRAINT [ID_Place_FK] FOREIGN KEY([IDPlace]) REFERENCES [dbo].[Places] ([IDPlace]))

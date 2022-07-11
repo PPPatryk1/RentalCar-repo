@@ -9,5 +9,12 @@ C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.csproj.Gene
 C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.csproj.CopyComplete
 C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.exe
 C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.pdb
-C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.Main.resources
 C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.LoginForm.resources
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.AdminPanel.resources
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.RegisterForm.resources
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\bin\Debug\FluentEmail.Core.dll
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\bin\Debug\FluentEmail.Smtp.dll
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.CustomerPanel.resources
+C:\Users\Patryk\source\repos\RentalCar\RentalCar\obj\Debug\RentalCar.RentNewCarForm.resources
