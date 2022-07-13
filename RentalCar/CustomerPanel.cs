@@ -13,6 +13,9 @@ namespace RentalCar
     public partial class CustomerPanel : Form
     {
         List<Car> CarList = new List<Car>();
+        List<Customer> customer = new List<Customer>();
+        public static DataGridView datagrid;
+        public static int idcar;
         public CustomerPanel()
         {
             InitializeComponent();
@@ -70,8 +73,9 @@ namespace RentalCar
 
         private void Rentbutton_Click(object sender, EventArgs e)
         {
-            int i = CarDataGrid.CurrentRow.Index;
-            if (CarList[i].status == true)
+            datagrid = CarDataGrid;
+            idcar = CarDataGrid.CurrentRow.Index;
+            if (CarList[idcar].status == true)
             {
                 RentNewCarForm rncf = new RentNewCarForm();
                 rncf.Show();

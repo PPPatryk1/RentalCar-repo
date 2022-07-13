@@ -23,7 +23,7 @@ namespace RentalCar
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("CarDB")))
             {
                 List<Car> car = new List<Car>();
-                car.Add(new Car{brand = Brand, model = Model, engineType = EngineType, transmission = Transmission, doorNumber = DoorNumber, bootCapacity = BootCapacity, price = Price, status = Status});
+                car.Add(new Car { brand = Brand, model = Model, engineType = EngineType, transmission = Transmission, doorNumber = DoorNumber, bootCapacity = BootCapacity, price = Price, status = Status });
                 connection.Execute("[dbo].[AddNewCar] @Brand, @Model, @EngineType, @Transmission, @DoorNumber, @BootCapacity, @Price", car);
             }
         }
@@ -38,7 +38,7 @@ namespace RentalCar
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("CarDB")))
             {
-                connection.Execute("[dbo].[UpdateCar] @IDCar, @Brand, @Model, @EngineType, @Transmission, @DoorNumber, @BootCapacity, @Price, @Status",list[IDCar]);
+                connection.Execute("[dbo].[UpdateCar] @IDCar, @Brand, @Model, @EngineType, @Transmission, @DoorNumber, @BootCapacity, @Price, @Status", list[IDCar]);
             }
         }
         public List<Car> GetCarListAvailable()
@@ -64,17 +64,17 @@ namespace RentalCar
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("CarDB")))
             {
-                var output = connection.Query <Customer>($"[dbo].[CorrectUser] @Email='{login}', @Password='{password}'").ToList();
-                return output;        
+                var output = connection.Query<Customer>($"[dbo].[CorrectUser] @Email='{login}', @Password='{password}'").ToList();
+                return output;
             }
         }
         public int EmailCheck(string email) //Chwilowo nie działa
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("CarDB")))
             {
-                int output = Convert.ToInt32(connection.ExecuteScalar($"[dbo].[EmailCheck] @Email",new { @Email = email }));
+                int output = Convert.ToInt32(connection.ExecuteScalar($"[dbo].[EmailCheck] @Email", new { @Email = email }));
                 return output;
-                
+
             }
         }
         public void AddNewCustomer(string Firstname, string Surrname, string Address, int Phone, string Email, string Password)
@@ -102,6 +102,23 @@ namespace RentalCar
             {
                 var output = connection.Query<Places>("[dbo].[AllPlaces]").ToList();
                 return output;
+            }
+        }
+        public List<Customer> Customer(int id)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("CarDB")))
+            {
+                var output = connection.Query<Customer>($"[dbo].[User] @ID='{id}'").ToList();
+                return output;
+            }
+        }
+        public void AddNewContract(int IDCar, int IDCustomer, int IDPlace, DateTime Start, DateTime Finish, int TotalPrice)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("CarDB")))
+            {
+                List<Contract> contracts = new List<Contract>();
+                contracts.Add(new Contract { idcar = IDCar, idcustomer = IDCustomer, idplace = IDPlace, startDay = Start, finishDay = Finish, totalPrice = TotalPrice });
+                connection.Execute("[dbo].[AddNewContract] @IDCar, @IDCustomer, @IDPlace, @StartDay, @FinishDay, @TotalPrice", contracts);
             }
         }
     }

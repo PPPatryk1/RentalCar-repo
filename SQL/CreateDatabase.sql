@@ -99,3 +99,6 @@ TotalPrice int NOT NULL,
 CONSTRAINT [ID_Car_FK] FOREIGN KEY([IDCar]) REFERENCES [dbo].[Cars] ([IDCar]),
 CONSTRAINT [ID_Customer_FK] FOREIGN KEY([IDCustomer]) REFERENCES [dbo].[Customers] ([IDCustomer]),
 CONSTRAINT [ID_Place_FK] FOREIGN KEY([IDPlace]) REFERENCES [dbo].[Places] ([IDPlace]))
+
+Insert into [Contracts]([IDCar],[IDCustomer],[IDPlace],[StartDay],[FinishDay],[TotalPrice])
+values (2,5,2,'2022-07-15','2022-07-25',1500)

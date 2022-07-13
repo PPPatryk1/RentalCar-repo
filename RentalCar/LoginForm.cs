@@ -14,6 +14,7 @@ namespace RentalCar
     {
         List<Customer> customer = new List<Customer>();
         List<Administrator> admins = new List<Administrator>();
+        public static int id;
         public LoginForm()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace RentalCar
 
                 if (customer.Count == 1)
                 {
+                    id = customer[0].IdCustomer;
                     CustomerPanel cp = new CustomerPanel();
                     cp.Show();
                 }

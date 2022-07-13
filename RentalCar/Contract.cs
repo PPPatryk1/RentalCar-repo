@@ -9,9 +9,9 @@ namespace RentalCar
     class Contract
     {
         public int contractID { get; set; }
-        public int carID { get; set; }
-        public int customerID { get; set; }
-        public int placeID { get; set; }
+        public int idcar { get; set; }
+        public int idcustomer { get; set; }
+        public int idplace { get; set; }
         public DateTime startDay { get; set; }
         public DateTime finishDay { get; set; }
         public int totalPrice { get; set; }
